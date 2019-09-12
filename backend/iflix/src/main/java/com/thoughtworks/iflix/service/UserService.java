@@ -25,10 +25,7 @@ public class UserService
 		
 		 if(validUser.getPassword()==user.getPassword())
 		  {
-			 System.out.println(validUser.getPassword()+"<============>"+loginDto.getPassword());
-				  System.out.println("!!!!!!!!!!!!!!!!!");
-			     // throw new UserException(401,environment.getProperty("user.wrongemailid"));
-				  return true;
+			   return true;
 		  }
 		return false;
 	}
