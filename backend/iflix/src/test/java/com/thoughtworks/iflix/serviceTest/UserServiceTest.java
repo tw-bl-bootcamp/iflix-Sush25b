@@ -25,7 +25,7 @@ public class UserServiceTest
 	IUserRepository userRepository;
 	
 	@Mock
-     ModelMapper modelMapper;
+    ModelMapper modelMapper;
 
 	@InjectMocks
     UserService userService=new UserService();
@@ -46,4 +46,19 @@ public class UserServiceTest
 		assertFalse(userService.onLogin(userLoginDto));
 	}
     
+    @Test
+   	public void givenADummyUserWithCorrectDetails_whenchecked_thenReturnTrue()
+   	{	
+       	UserLoginDto userLoginDto= new UserLoginDto("patil@gmail.com", "1234"); 
+       	
+       	User dummyUser=new User(1L, null, null, "patil@gmail.com", "1234");
+       	
+   		User user=new User(1L,"sushant","patil","p@gmail.com","1234");  //valid Object
+   		Optional<User> validUser= Optional.ofNullable(user);
+   		
+   		when(modelMapper.map(ArgumentMatchers.any(),ArgumentMatchers.any())).thenReturn(dummyUser);
+   		when(userRepository.findByEmailid(ArgumentMatchers.anyString())).thenReturn(validUser);
+        	
+   		assertTrue(userService.onLogin(userLoginDto));
+   	}
 }
