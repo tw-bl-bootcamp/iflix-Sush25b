@@ -2,14 +2,16 @@ package com.thoughtworks.iflix.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="User")
 public class User 
 {
+	@Id
 	@Column(name="id")
-	private int id;
+	private Long id;
 	
 	@Column(name="firstName")
 	private String firstName;
@@ -20,27 +22,22 @@ public class User
 	@Column(name="emailId")
 	private String emailId;
 	
-	@Column(name="phoneNo")
-	private String phoneno;
-	
 	@Column(name="password")
 	private String password;
 
-	public User(int id, String firstName, String lastName, String emailId, String phoneno, String password) {
-		super();
+	public User(Long id, String firstName, String lastName, String emailId, String password) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.emailId = emailId;
-		this.phoneno = phoneno;
 		this.password = password;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -68,14 +65,6 @@ public class User
 		this.emailId = emailid;
 	}
 
-	public String getPhoneno() {
-		return phoneno;
-	}
-
-	public void setPhoneno(String phoneno) {
-		this.phoneno = phoneno;
-	}
-
 	public String getPassword() {
 		return password;
 	}
@@ -83,6 +72,4 @@ public class User
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
 }
