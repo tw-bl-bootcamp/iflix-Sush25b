@@ -1,8 +1,10 @@
 package com.thoughtworks.iflix.service;
 
+import java.io.IOException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.thoughtworks.iflix.exception.UserException;
@@ -17,10 +19,13 @@ public class VenueService
 	@Autowired
 	IVenueRepository venueRepository;
 	
+	@Autowired
+	IShowRepository showRepository;
 	
-	public boolean addNewVenue(Venue venue) {
+	public boolean addNewVenue(Venue venue,String showname) {
 		
 		Optional<Venue> venueAvailable = venueRepository.findByvenueName(venue.getVenueName());
+		Optional<Show> showAvailable = showRepository.findByshowname(showname);
 		
 		System.out.println(venueAvailable);
 		if (venueAvailable.isPresent())
@@ -28,11 +33,9 @@ public class VenueService
 			throw new UserException(401,"venueAvailable already exists");
 		}
 
-		venueRepository.save(venue);
+		showAvailable.get().getVenues().add(venue);
+		showRepository.save(showAvailable.get());
 		return true;
 	}
-	
-
-	
 	
 }

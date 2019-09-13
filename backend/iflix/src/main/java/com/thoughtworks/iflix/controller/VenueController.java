@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.thoughtworks.iflix.dto.UserLoginDto;
+import com.thoughtworks.iflix.model.Show;
 import com.thoughtworks.iflix.model.User;
 import com.thoughtworks.iflix.model.Venue;
 import com.thoughtworks.iflix.service.UserService;
@@ -20,9 +21,9 @@ public class VenueController
 	VenueService venueService;
 	
 	@PostMapping("/addVenue")
-	public boolean addVenue(@RequestBody Venue venue) 
+	public boolean addVenue(@RequestBody Venue venue,String showname) 
 	{
-		return venueService.addNewVenue(venue);
+		return venueService.addNewVenue(venue,showname);
 	}
 
 }

@@ -84,6 +84,4 @@ public class Show
 				+ ", venues=" + venues + "]";
 	}
 
-	
-
 }

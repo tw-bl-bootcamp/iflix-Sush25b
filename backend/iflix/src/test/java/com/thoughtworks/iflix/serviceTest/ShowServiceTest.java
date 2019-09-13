@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -44,8 +45,9 @@ public class ShowServiceTest
 		list.add(new Show("blackmen","2.3", "good,average"));
 		list.add(new Show("men","4/5", "bad,average, not good"));
 		list.add(new Show("kmen","3.4", "good one, nice acting"));
-		
+	
    		when(showRepository.findAll()).thenReturn(list);
+   	
    		assertEquals(list.size(), showService.getshowList().size());
    	}
 }
