@@ -5,9 +5,11 @@ import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -34,8 +36,11 @@ public class VenueServiceTest
 	@Test
    	public void getMoviesVenue_whenchecked_thenReturnList()
    	{		
-		List<Show> list=new ArrayList<>();
-	
+		
+		Venue venue=new Venue(1, "jpnagar");
+		
+		when(venueRepository.findByvenueName(ArgumentMatchers.any())).thenReturn(Optional.of(venue));
+		when(showRepository.findByshowname(ArgumentMatchers.anyString()))
 
 		
    	}

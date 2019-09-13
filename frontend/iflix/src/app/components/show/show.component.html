@@ -1,0 +1,30 @@
+<div class="main-container">
+    <div *ngFor="let show of shows">
+        <div>
+            <mat-card style="border:1px solid black">
+                <div fxLayout="column">
+                    <div>
+                        <label>Show ID : </label>
+                        <span>{{show.showId}}</span>
+                    </div>
+                    <div>
+                        <label>Show Name  : </label>
+                        <span>{{show.showName}}</span>
+                    </div>
+                    <div>
+                        <label>Ratings : </label>
+                        <span>{{show.showRating}}</span>
+                    </div>
+                    <div>
+                        <label>Comments : </label>
+                        <span>{{show.showComments}}</span>
+                    </div>
+
+                </div>
+
+
+
+            </mat-card>
+        </div>
+    </div>
+</div>
