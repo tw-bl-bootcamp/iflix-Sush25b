@@ -63,17 +63,4 @@ public class UserServiceTest
    		assertTrue(userService.onLogin(userLoginDto));
    	}
     
-//    @Test
-//   	public void givenUserDetailsToAddUser_whenSave_thenReturnTrue()
-//   	{	
-//    	UserDto userDto=new UserDto("sushant","patil","patil@gmail.com","1234");
-//    	User user
-//    	
-//   		Optional<User> userAvailable= Optional.ofNullable(null);
-//   		
-//   		when(modelMapper.map(ArgumentMatchers.any(),ArgumentMatchers.any())).thenReturn(dummyUser);
-//   		when(userRepository.findByEmailId(ArgumentMatchers.anyString())).thenReturn(validUser);
-//        	
-//   		assertTrue(userService.onLogin(userLoginDto));
-//   	}
 }

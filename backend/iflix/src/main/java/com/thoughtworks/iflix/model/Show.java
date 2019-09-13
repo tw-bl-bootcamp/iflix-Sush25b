@@ -24,7 +24,7 @@ public class Show
 	private String showname;
 	
 	@Column(name="rating")
-	private int rating;
+	private String rating;
 	
 	@Column(name="comments")
 	private String Comments;
@@ -36,23 +36,23 @@ public class Show
 		return Id;
 	}
 
-	public void setShowId(int showId) {
-		this.Id = showId;
+	public void setId(int id) {
+		Id = id;
 	}
 
-//	public String getShowname() {
-//		return showname;
-//	}
-//
-//	public void setShowname(String showName) {
-//		this.showname = showName;
-//	}
+	public String getShowname() {
+		return showname;
+	}
 
-	public int getRating() {
+	public void setShowname(String showname) {
+		this.showname = showname;
+	}
+
+	public String getRating() {
 		return rating;
 	}
 
-	public void setRating(int rating) {
+	public void setRating(String rating) {
 		this.rating = rating;
 	}
 
@@ -63,5 +63,14 @@ public class Show
 	public void setComments(String comments) {
 		Comments = comments;
 	}
-	
+
+	public List<Venue> getVenues() {
+		return venues;
+	}
+
+	public void setVenues(List<Venue> venues) {
+		this.venues = venues;
+	}
+
+
 }
