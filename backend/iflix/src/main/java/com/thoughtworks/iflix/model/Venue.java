@@ -32,6 +32,14 @@ public class Venue
 	@OneToMany(mappedBy="venue", cascade= {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
 	private List<ShowTime> showTimes;  
 	
+	
+	
+	public Venue(int venueId, String venueName) {
+		super();
+		this.venueId = venueId;
+		this.venueName = venueName;
+	}
+
 	public int getVenueId() {
 		return venueId;
 	}
