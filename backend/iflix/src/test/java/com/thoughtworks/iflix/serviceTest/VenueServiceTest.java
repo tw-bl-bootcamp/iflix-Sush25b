@@ -35,7 +35,8 @@ public class VenueServiceTest
    	public void getMoviesVenue_whenchecked_thenReturnList()
    	{		
 		List<Show> list=new ArrayList<>();
-		list.add(new Venue(1,"jpnagar"));
+	
+
 		
    	}
 }
