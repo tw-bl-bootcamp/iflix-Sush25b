@@ -1,6 +1,7 @@
 package com.thoughtworks.iflix.service;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class ShowService
 	/**
 	 * Create New Show
 	 */
-	public boolean createShow(Show show)
+	public boolean createNewShow(Show show)
 	{
 		Optional<Show> showAvailable = showRepository.findByshowname(show.getShowname());
 		
@@ -34,5 +35,20 @@ public class ShowService
 
 		showRepository.save(show);
 		return true;
+	}
+	
+	/**
+	 *get lis of available shows
+	 */
+	public List<Show> getshowList()
+	{
+		List<Show> listshowRepository= showRepository.findAll();
+		
+		System.out.println("9999999"+listshowRepository);
+		if (listshowRepository.isEmpty())
+		{
+			throw new UserException(401,"No Movie Available");
+		}
+		return listshowRepository;
 	}
 }

@@ -1,5 +1,7 @@
 package com.thoughtworks.iflix.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,6 +24,12 @@ public class ShowController
 	@PostMapping("/createShow")
 	public boolean createShow(@RequestBody Show newShow) 
 	{
-		return showService.createShow(newShow);
+		return showService.createNewShow(newShow);
+	}
+	
+	@PostMapping("/showlist")
+	public List<Show> showList() 
+	{
+		return showService.getshowList();
 	}
 }

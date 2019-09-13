@@ -31,7 +31,7 @@ public class Venue
 	
 	@OneToMany(mappedBy="venue", cascade= {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
 	private List<ShowTime> showTimes;  
-
+	
 	public int getVenueId() {
 		return venueId;
 	}

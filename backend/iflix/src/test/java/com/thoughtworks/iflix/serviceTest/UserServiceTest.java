@@ -12,6 +12,7 @@ import org.modelmapper.ModelMapper;
 
 import com.thoughtworks.iflix.dto.UserDto;
 import com.thoughtworks.iflix.dto.UserLoginDto;
+import com.thoughtworks.iflix.exception.UserException;
 import com.thoughtworks.iflix.model.User;
 import com.thoughtworks.iflix.repository.IUserRepository;
 import com.thoughtworks.iflix.service.UserService;

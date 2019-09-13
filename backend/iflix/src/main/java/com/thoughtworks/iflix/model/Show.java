@@ -31,6 +31,12 @@ public class Show
 	
 	@OneToMany(mappedBy="show", cascade= {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
 	private List<Venue> venues;
+	
+	public Show( String showname, String rating, String comments) {
+		this.showname = showname;
+		this.rating = rating;
+		this.Comments = comments;
+	}
 
 	public int getId() {
 		return Id;
@@ -72,5 +78,12 @@ public class Show
 		this.venues = venues;
 	}
 
+	@Override
+	public String toString() {
+		return "Show [Id=" + Id + ", showname=" + showname + ", rating=" + rating + ", Comments=" + Comments
+				+ ", venues=" + venues + "]";
+	}
+
+	
 
 }
