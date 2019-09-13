@@ -12,6 +12,8 @@ TBD Please update as per stack choices being used in your private project repo
 
 Languages
 Java
+HTML 5
+Css
 
 Frameworks
 Springboot
