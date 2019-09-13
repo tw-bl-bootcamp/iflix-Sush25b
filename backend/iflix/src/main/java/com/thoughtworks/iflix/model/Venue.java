@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Venue")
+@Table(name="Venues")
 public class Venue 
 {
 	@Id
@@ -22,7 +22,7 @@ public class Venue
 	@Column(name= "venueid")
 	private int venueId;
 	
-	@Column(name= "id")
+	@Column(name= "venuename")
 	private String venueName;
 
 	@ManyToOne(cascade= {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
