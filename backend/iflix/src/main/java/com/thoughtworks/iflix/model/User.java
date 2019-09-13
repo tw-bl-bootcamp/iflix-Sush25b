@@ -28,9 +28,10 @@ public class User
 	@Column(name="password")
 	private String password;
 
+	public User() {}
 	
-	public User(int id, String firstName, String lastName, String emailId, String password) {
-		this.id = id;
+	public User(String firstName, String lastName, String emailId, String password) {
+	
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.emailId = emailId;
@@ -60,13 +61,13 @@ public class User
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
-	public String getEmailid() {
+	
+	public String getEmailId() {
 		return emailId;
 	}
 
-	public void setEmailid(String emailid) {
-		this.emailId = emailid;
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
 	}
 
 	public String getPassword() {
@@ -76,4 +77,13 @@ public class User
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", emailId=" + emailId
+				+ ", password=" + password + "]";
+	}
+	
+	
+	
 }

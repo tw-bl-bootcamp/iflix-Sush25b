@@ -10,6 +10,7 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.modelmapper.ModelMapper;
 
+import com.thoughtworks.iflix.dto.UserDto;
 import com.thoughtworks.iflix.dto.UserLoginDto;
 import com.thoughtworks.iflix.model.User;
 import com.thoughtworks.iflix.repository.IUserRepository;
@@ -35,9 +36,9 @@ public class UserServiceTest
 	{	
     	UserLoginDto userLoginDto= new UserLoginDto("patil@gmail.com", "2345"); 
     	
-    	User dummyUser=new User(1, null, null, "patil@gmail.com", "2345");
+    	User dummyUser=new User( null, null, "patil@gmail.com", "2345");
     	
-		User user=new User(13,"sushant","patil","p@gmail.com","1234");  //valid Object
+		User user=new User("sushant","patil","p@gmail.com","1234");  //valid Object
 		Optional<User> validUser= Optional.ofNullable(user);
 		
 		when(modelMapper.map(ArgumentMatchers.any(),ArgumentMatchers.any())).thenReturn(dummyUser);
@@ -51,9 +52,9 @@ public class UserServiceTest
    	{	
        	UserLoginDto userLoginDto= new UserLoginDto("patil@gmail.com", "1234"); 
        	
-       	User dummyUser=new User(1, null, null, "patil@gmail.com", "1234");
+       	User dummyUser=new User(null, null, "patil@gmail.com", "1234");
        	
-   		User user=new User(1,"sushant","patil","p@gmail.com","1234");  //valid Object
+   		User user=new User("sushant","patil","p@gmail.com","1234");  //valid Object
    		Optional<User> validUser= Optional.ofNullable(user);
    		
    		when(modelMapper.map(ArgumentMatchers.any(),ArgumentMatchers.any())).thenReturn(dummyUser);
@@ -61,4 +62,18 @@ public class UserServiceTest
         	
    		assertTrue(userService.onLogin(userLoginDto));
    	}
+    
+//    @Test
+//   	public void givenUserDetailsToAddUser_whenSave_thenReturnTrue()
+//   	{	
+//    	UserDto userDto=new UserDto("sushant","patil","patil@gmail.com","1234");
+//    	User user
+//    	
+//   		Optional<User> userAvailable= Optional.ofNullable(null);
+//   		
+//   		when(modelMapper.map(ArgumentMatchers.any(),ArgumentMatchers.any())).thenReturn(dummyUser);
+//   		when(userRepository.findByEmailId(ArgumentMatchers.anyString())).thenReturn(validUser);
+//        	
+//   		assertTrue(userService.onLogin(userLoginDto));
+//   	}
 }

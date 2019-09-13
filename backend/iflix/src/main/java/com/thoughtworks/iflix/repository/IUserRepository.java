@@ -2,6 +2,8 @@ package com.thoughtworks.iflix.repository;
 
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.thoughtworks.iflix.dto.UserDto;
 import com.thoughtworks.iflix.model.User;
 
 public interface IUserRepository extends JpaRepository<User, Long>
