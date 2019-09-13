@@ -2,6 +2,8 @@ package com.thoughtworks.iflix.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,8 +12,9 @@ import javax.persistence.Table;
 public class User 
 {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="id")
-	private Long id;
+	private int id;
 	
 	@Column(name="firstName")
 	private String firstName;
@@ -25,7 +28,8 @@ public class User
 	@Column(name="password")
 	private String password;
 
-	public User(Long id, String firstName, String lastName, String emailId, String password) {
+	
+	public User(int id, String firstName, String lastName, String emailId, String password) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -33,11 +37,11 @@ public class User
 		this.password = password;
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

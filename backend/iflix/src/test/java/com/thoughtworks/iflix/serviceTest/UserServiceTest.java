@@ -35,13 +35,13 @@ public class UserServiceTest
 	{	
     	UserLoginDto userLoginDto= new UserLoginDto("patil@gmail.com", "2345"); 
     	
-    	User dummyUser=new User(1L, null, null, "patil@gmail.com", "2345");
+    	User dummyUser=new User(1, null, null, "patil@gmail.com", "2345");
     	
-		User user=new User(13L,"sushant","patil","p@gmail.com","1234");  //valid Object
+		User user=new User(13,"sushant","patil","p@gmail.com","1234");  //valid Object
 		Optional<User> validUser= Optional.ofNullable(user);
 		
 		when(modelMapper.map(ArgumentMatchers.any(),ArgumentMatchers.any())).thenReturn(dummyUser);
-		when(userRepository.findByEmailid(ArgumentMatchers.anyString())).thenReturn(validUser);
+		when(userRepository.findByEmailId(ArgumentMatchers.anyString())).thenReturn(validUser);
      	
 		assertFalse(userService.onLogin(userLoginDto));
 	}
@@ -51,13 +51,13 @@ public class UserServiceTest
    	{	
        	UserLoginDto userLoginDto= new UserLoginDto("patil@gmail.com", "1234"); 
        	
-       	User dummyUser=new User(1L, null, null, "patil@gmail.com", "1234");
+       	User dummyUser=new User(1, null, null, "patil@gmail.com", "1234");
        	
-   		User user=new User(1L,"sushant","patil","p@gmail.com","1234");  //valid Object
+   		User user=new User(1,"sushant","patil","p@gmail.com","1234");  //valid Object
    		Optional<User> validUser= Optional.ofNullable(user);
    		
    		when(modelMapper.map(ArgumentMatchers.any(),ArgumentMatchers.any())).thenReturn(dummyUser);
-   		when(userRepository.findByEmailid(ArgumentMatchers.anyString())).thenReturn(validUser);
+   		when(userRepository.findByEmailId(ArgumentMatchers.anyString())).thenReturn(validUser);
         	
    		assertTrue(userService.onLogin(userLoginDto));
    	}
